@@ -1,0 +1,628 @@
+{
+	"info": {
+		"_postman_id": "27a12790-16e0-4d56-9e5f-2ca242b8cf41",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28616928"
+	},
+	"item": [
+		{
+			"name": "RecipeRDP",
+			"item": [
+				{
+					"name": "Menu Recipe",
+					"item": [
+						{
+							"name": "Get data recipe Detail",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{base_url}}/recipe",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"recipe"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UPDATE recipe",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "title",
+											"value": "donat",
+											"type": "text"
+										},
+										{
+											"key": "ingredients",
+											"value": "tepung,telur dan mentega",
+											"type": "text"
+										},
+										{
+											"key": "category_id",
+											"value": "appertizer",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/recipe/2",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"recipe",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE recipe",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "batagor",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/recipe/3",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"recipe",
+										"3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "POST recipe",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "risolesawww",
+											"type": "text"
+										},
+										{
+											"key": "ingredients",
+											"value": "tepung",
+											"type": "text"
+										},
+										{
+											"key": "category_id",
+											"value": "1",
+											"description": "1=Main Course 2=desert 3=appetizer",
+											"type": "text"
+										},
+										{
+											"key": "photo",
+											"type": "file",
+											"src": [],
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/recipe",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"recipe"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get data recipe",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{base_url}}/recipe",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"recipe"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Recipe search",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{base_url}}/recipe",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"recipe"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "AUTH",
+					"item": [
+						{
+							"name": "LOGIN",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "title",
+											"value": "risoles",
+											"type": "text"
+										},
+										{
+											"key": "ingredients",
+											"value": "bihun",
+											"type": "text"
+										},
+										{
+											"key": "category_id",
+											"value": "siap",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/recipe",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"recipe"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "REGISTER",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "title",
+											"value": "risoles",
+											"type": "text"
+										},
+										{
+											"key": "ingredients",
+											"value": "bihun",
+											"type": "text"
+										},
+										{
+											"key": "category_id",
+											"value": "siap",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/recipe",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"recipe"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Category",
+					"item": [
+						{
+							"name": "Get Category",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{base_url}}/recipe",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"recipe"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Category Detail",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{base_url}}/recipe",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"recipe"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "POST Category",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "risoles",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/category",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"category"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UPDATE category",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "title",
+											"value": "donat",
+											"type": "text"
+										},
+										{
+											"key": "ingredients",
+											"value": "tepung,telur dan mentega",
+											"type": "text"
+										},
+										{
+											"key": "category_id",
+											"value": "appertizer",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/recipe/2",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"recipe",
+										"2"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Users",
+					"item": [
+						{
+							"name": "Get Users",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{base_url}}/recipe",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"recipe"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Users detail",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{base_url}}/recipe",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"recipe"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get User search",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{base_url}}/users/detail?sort=asc&page=1",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users",
+										"detail"
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": null,
+											"disabled": true
+										},
+										{
+											"key": "searchBy",
+											"value": "name",
+											"disabled": true
+										},
+										{
+											"key": "sort",
+											"value": "asc"
+										},
+										{
+											"key": "page",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "POST users",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "title",
+											"value": "risoles",
+											"type": "text"
+										},
+										{
+											"key": "ingredients",
+											"value": "bihun",
+											"type": "text"
+										},
+										{
+											"key": "category_id",
+											"value": "siap",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/recipe",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"recipe"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UPDATE users",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "title",
+											"value": "donat",
+											"type": "text"
+										},
+										{
+											"key": "ingredients",
+											"value": "tepung,telur dan mentega",
+											"type": "text"
+										},
+										{
+											"key": "category_id",
+											"value": "appertizer",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/recipe/2",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"recipe",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE users",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "batagor",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/recipe/1",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"recipe",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
