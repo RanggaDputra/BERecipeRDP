@@ -12,6 +12,26 @@ const getRecipeAll = async () => {
         })
     )
 }
+const getRecipeByUsers = async (id) => {
+    console.log("model recipe by users_id ->", id);
+    return new Promise((resolve, reject) =>
+        Pool.query(
+            `SELECT recipe.id, recipe.title, recipe.ingredients, recipe.photo, recipe.category_id, category.name AS category, recipe.users_id, users.username AS author, users.photo AS author_photo, recipe.created_at,
+            FROM recipe
+            JOIN category ON recipe.category_id = category.id
+            JOIN users ON recipe.users_id = users.id
+            WHERE users_id=${id} 
+            ORDER BY recipe.id DESC`,
+            (err, result) => {
+                if (!err) {
+                    resolve(result);
+                } else {
+                    reject(err);
+                }
+            }
+        )
+    );
+};
 
 const getRecipe = (data) => {
     const {search,searchBy, offset, limit} = data
@@ -97,4 +117,4 @@ const getRecipeCount = async (data) => {
         })
     )
 }
-module.exports =  {getRecipe,getRecipeById,deleteById,postRecipe,putRecipe,getRecipeAll,getRecipeCount}
+module.exports =  {getRecipe,getRecipeById,deleteById,postRecipe,putRecipe,getRecipeAll,getRecipeCount,getRecipeByUsers}

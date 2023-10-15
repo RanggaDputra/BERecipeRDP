@@ -1,4 +1,4 @@
-const { getRecipe, getRecipeById, deleteById, postRecipe, putRecipe, getRecipeAll, getRecipeCount } = require('../model2/RecipeModel')
+const { getRecipe, getRecipeById, deleteById, postRecipe, putRecipe, getRecipeAll, getRecipeCount,getRecipeByUsers} = require('../model2/RecipeModel')
 const cloudinary = require('../config/photo')
 
 
@@ -27,6 +27,29 @@ const RecipeController = {
         }
 
         return res.status(200).json({ "status": 200, "message": "get data recipe success", data: dataRecipeId.rows[0] })
+    },
+    getDataByUsers: async (req, res, next) => {
+        try {
+            const { id } = req.params;
+
+            if (!id || id <= 0 || isNaN(id)) {
+                return res.status(400).json({ status: 400, message: "Invalid users_id" });
+            }
+
+            const dataRecipeUsers = await getRecipeByUsers(parseInt(id));
+
+            console.log("dataRecipe");
+            console.log(dataRecipeUsers);
+
+            if (!dataRecipeUsers.rows[0]) {
+                return res.status(200).json({ status: 200, message: "Recipe data not found", data: [] });
+            }
+
+            res.status(200).json({ status: 200, message: "get data recipe success", data: dataRecipeUsers.rows });
+        } catch (err) {
+            console.error(err);
+            res.status(500).json({ status: 500, message: "Internal server error" });
+        }
     },
     deleteDataById: async (req, res, next) => {
         try {

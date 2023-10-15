@@ -1,4 +1,4 @@
-const {getData,getDataById,deleteDataById,postData,putData,getDataDetail} = require("../controller/RecipeController")
+const {getData,getDataById,deleteDataById,postData,putData,getDataDetail,getDataByUsers} = require("../controller/RecipeController")
 const express = require('express');
 const { Router } = require("express");
 const router = express.Router()
@@ -8,6 +8,7 @@ const upload = require("../midleware/UploadPhoto");
 
 router.get('/',Protect,getData)
 router.get('/detail',getDataDetail)
+router.get('/users/:id',getDataByUsers)
 router.get('/:id',getDataById)
 router.delete('/:id',Protect,deleteDataById)
 router.post('/',Protect,upload.single('photo'),postData)
