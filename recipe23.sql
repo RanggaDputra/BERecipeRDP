@@ -1,4 +1,4 @@
--- Active: 1690000069845@@147.139.210.135@5432@rangga01
+-- Active: 1693379950946@@147.139.210.135@5432@rangga01
 
 CREATE TABLE
     recipe(
@@ -79,3 +79,8 @@ UPDATE users SET role='users' WHERE id=2;
 
 ALTER TABLE users ADD COLUMN is_active BOOLEAN DEFAULT false;
 ALTER TABLE users ADD COLUMN checker VARCHAR;
+SELECT recipe.id, recipe.title, recipe.ingredients, recipe.photo, category.name AS category, users.username AS creator
+FROM recipe
+JOIN category ON recipe.category_id = category.id
+JOIN users ON recipe.users_id = users.id
+ORDER BY recipe.id;
