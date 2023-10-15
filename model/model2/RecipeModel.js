@@ -18,10 +18,7 @@ const getRecipe = (data) => {
 
     console.log("model getRecipe",search,searchBy, offset, limit)
     return new Promise((resolve,reject)=>
-        Pool.query(`SELECT recipe.id, recipe.title, recipe.ingredients, recipe.photo, cateogry.name AS category, users.username AS creator, recipe.created_at
-        FROM recipe
-        JOIN category ON recipe.category_id = category.id
-        JOIN users ON recipe.users_id = users.id WHERE ${searchBy} ILIKE '%${search}%' ORDER BY recipe.id DESC OFFSET ${offset} LIMIT ${limit}`,(err,result)=>{
+        Pool.query(`SELECT recipe.id, recipe.title, recipe.ingredients, recipe.photo, category.name AS category  FROM recipe JOIN category ON recipe.category_id = category.id WHERE ${searchBy} ILIKE '%${search}%' ORDER BY recipe.id DESC OFFSET ${offset} LIMIT ${limit}`,(err,result)=>{
             if(!err){
                 resolve(result)
             } else{
