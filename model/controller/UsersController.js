@@ -84,14 +84,12 @@ const UsersController = {
 
         let dataUsersId = await getUsersById(parseInt(id))
         let users_id = req.payload.id
-
+        
+       
         if (!req.file) {
             console.log('id data')
             console.log(users_id)
-            console.log(dataUsersId.rows[0].users_id)
-            if (users_id != dataUsersId.rows[0].users_id) {
-                return res.status(404).json({ "message": "bukan akun anda" });
-            }
+            
     
             console.log("put data")
             console.log(dataUsersId.rows[0])
@@ -119,10 +117,7 @@ const UsersController = {
             console.log(ImageCloud)
             console.log('id data')
             console.log(users_id)
-            console.log(dataUsersId.rows[0].users_id)
-            if (users_id != dataUsersId.rows[0].users_id) {
-                return res.status(404).json({ "message": "bukan akun anda" });
-            }
+           
     
             console.log("put data")
             console.log(dataUsersId.rows[0])

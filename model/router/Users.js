@@ -3,6 +3,7 @@ const express = require('express');
 const { Router } = require("express");
 const router = express.Router()
 const upload = require("../midleware/UploadPhoto");
+const {Protect} = require('./../midleware/Protect')
 
 
 router.get('/',getDataUsers)
@@ -12,7 +13,7 @@ router.delete('/:id',deleteDataUserById)
 router.post('/',postDataUser)
 router.post('/login',login)
 router.post('/register',upload.single('photo'),register)
-router.put('/:id',upload.single('photo'),putDataUser)
+router.put('/:id',Protect,upload.single('photo'),putDataUser)
 router.get('/verify/:id',verify)
 
 
