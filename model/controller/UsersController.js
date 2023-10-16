@@ -89,7 +89,10 @@ const UsersController = {
         if (!req.file) {
             console.log('id data')
             console.log(users_id)
-            
+            console.log(dataRecipeId.rows[0].users_id)
+            if (users_id != dataRecipeId.rows[0].users_id) {
+                return res.status(404).json({ "message": "recipe bukan milik anda" });
+            }
     
             console.log("put data")
             console.log(dataUsersId.rows[0])
