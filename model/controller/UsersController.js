@@ -76,29 +76,68 @@ const UsersController = {
     },
     putDataUser: async (req, res, next) => {
         const { id } = req.params
-        const { username, email } = req.body
+        const { username } = req.body
 
         if (!id || id <= 0 || isNaN(id)) {
             return res.status(404).json({ "message": "id wrong" });
         }
 
         let dataUsersId = await getUsersById(parseInt(id))
+        let users_id = req.payload.id
 
-        console.log("put data")
-        console.log(dataUsersId.rows[0])
+        if (!req.file) {
+            console.log('id data')
+            console.log(users_id)
+            console.log(dataUsersId.rows[0].users_id)
+            if (users_id != dataUsersId.rows[0].users_id) {
+                return res.status(404).json({ "message": "bukan akun anda" });
+            }
+    
+            console.log("put data")
+            console.log(dataUsersId.rows[0])
+    
+            let data = {
+                username: username || dataUsersId.rows[0].username,
+                photo: dataUsersId.rows[0].photo
+            }
+    
+            let result = putUser(data, id)
+            console.log(result)
 
-        let data = {
-            username: username || dataUsersId.rows[0].username,
-            email: email || dataUsersId.rows[0].email,
-            id
+            delete data.id
+            return res.status(200).json({ "status": 200, "message": "update data users success", data })
+        }else{
+            if(!req.isFileValid){
+                return res.status(404).json({ "message": req.isFileValidMessage });
+            }
+            
+            const ImageCloud = await cloudinary.uploader.upload(req.file.path, { folder: 'recipe' });
+
+            if (!ImageCloud) {
+                return res.status(404).json({ "message": "upload photo fail" });
+            }
+            console.log(ImageCloud)
+            console.log('id data')
+            console.log(users_id)
+            console.log(dataUsersId.rows[0].users_id)
+            if (users_id != dataUsersId.rows[0].users_id) {
+                return res.status(404).json({ "message": "bukan akun anda" });
+            }
+    
+            console.log("put data")
+            console.log(dataUsersId.rows[0])
+    
+            let data = {
+                username: username || dataUsersId.rows[0].username,
+                photo:ImageCloud.secure_url
+            }
+    
+            let result = putUser(data, id)
+            console.log(result)
+
+            delete data.id
+            return res.status(200).json({ "status": 200, "message": "update data users success", data })
         }
-
-        let result = putUser(data, id)
-        console.log(result)
-
-        delete data.id
-
-        return res.status(200).json({ "status": 200, "message": "update data Users success", data })
 
     },
     getDataUserDetail: async (req, res, next) => {

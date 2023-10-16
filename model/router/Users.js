@@ -12,7 +12,7 @@ router.delete('/:id',deleteDataUserById)
 router.post('/',postDataUser)
 router.post('/login',login)
 router.post('/register',upload.single('photo'),register)
-router.put('/:id',putDataUser)
+router.put('/:id',upload.single('photo'),putDataUser)
 router.get('/verify/:id',verify)
 
 
