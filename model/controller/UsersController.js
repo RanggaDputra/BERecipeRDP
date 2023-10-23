@@ -192,11 +192,11 @@ const UsersController = {
         delete users.password
         let token = GenerateToken(users)
         users.token = token
-        if (!users.is_active) {
-            return res
-              .status(404)
-              .json({ status: 494, message: "email belum diaktivasi" });
-          }
+        // if (!users.is_active) {
+        //     return res
+        //       .status(404)
+        //       .json({ status: 494, message: "email belum diaktivasi" });
+        //   }
 
         res.status(200).json({ "status": 200, "message": "get data profile success", users })
     },
@@ -220,8 +220,8 @@ const UsersController = {
             return res.status(404).json({ "status": 404, "message": "email sudah terdaftar, silahkan login" })
         }
         //email
-        let uuid = uuidv4();
-        console.log("uuid", uuid);
+        // let uuid = uuidv4();
+        // console.log("uuid", uuid);
         //
 
         password = await argon2.hash(password);
@@ -230,7 +230,7 @@ const UsersController = {
             email, username,
             password,
             photo: ImageCloud.secure_url,
-            uuid
+            
 
         }
 
@@ -243,11 +243,11 @@ const UsersController = {
         }
 
 //email
-let url = `${process.env.BASE_URL}/users/verify/${uuid}`;
-    let sendEmail = Email(email, url, username);
+// let url = `${process.env.BASE_URL}/users/verify/${uuid}`;
+//     let sendEmail = Email(email, url, username);
 
-    console.log("sendEmail", sendEmail);
-    console.log(sendEmail);
+//     console.log("sendEmail", sendEmail);
+//     console.log(sendEmail);
 //
 
 
