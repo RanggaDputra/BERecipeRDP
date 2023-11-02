@@ -3,6 +3,9 @@ const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const Router = require("./model/router/index");
 const cors = require("cors");
+const like = require("./model/router/Like");
+const comment = require("./model/router/Comment");
+const bookmark = require("./model/router/Bookmark");
 
 
 
@@ -21,6 +24,9 @@ app.use(morgan("combined"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(Router);
+app.use(like)
+app.use(bookmark)
+app.use(comment)
 
 
 app.get('/', (req, res) => {
